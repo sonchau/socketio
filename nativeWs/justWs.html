@@ -6,11 +6,11 @@
     console.log(ws);
 
     ws.onopen = (event)=>{
-        ws.send('I am so excited I am connected! It is like Christmas!');
+        ws.send('client send message to server');
     }
 
     ws.onmessage = (event)=>{
-        console.log(event);
+        console.log('on message event', event);
     }
 
 </script>

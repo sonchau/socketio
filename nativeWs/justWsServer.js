@@ -8,13 +8,14 @@ const server = http.createServer((req, res)=>{
 
 const wss = new websocket.Server({server})
 wss.on('headers',(headers,req)=>{
-    console.log(headers)
+    console.log('header', headers)
 });
 
 wss.on('connection', (ws,req)=>{
+    //console.log('connection', ws)
     ws.send('Welcome to the websocket server!!')
     ws.on('message',(msg)=>{
-        console.log(msg)
+        console.log('on message from client:', msg)
     })
 })
 
