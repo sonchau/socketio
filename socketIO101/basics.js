@@ -15,7 +15,7 @@ io.on('connection', (socket,req)=>{
     socket.emit('welcome','Welcome to the websocket server!!')
     // no change here...
     socket.on('message',(msg)=>{
-        console.log(msg)
+        console.log('server message', msg)
     })
 })
 
