@@ -1,4 +1,4 @@
-class Namespace{
+class Namespace {
     constructor(id, nsTitle, img, endpoint){
         this.id = id;
         this.img = img;

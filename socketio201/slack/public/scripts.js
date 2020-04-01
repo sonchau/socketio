@@ -22,7 +22,7 @@ socket.on('nsList',(nsData)=>{
         // console.log(elem)
         elem.addEventListener('click',(e)=>{
             const nsEndpoint = elem.getAttribute('ns');
-            // console.log(`${nsEndpoint} I should go to now`)
+            console.log(`${nsEndpoint} I should go to now`)
             joinNs(nsEndpoint)
         })
     })

@@ -3,7 +3,7 @@ const app = express();
 const socketio = require('socket.io')
 
 let namespaces = require('./data/namespaces');
-// console.log(namespaces[0]);
+//console.log(namespaces);
 app.use(express.static(__dirname + '/public'));
 const expressServer = app.listen(9000);
 const io = socketio(expressServer);
@@ -20,7 +20,7 @@ io.on('connection',(socket)=>{
             endpoint: ns.endpoint
         }
     })
-    // console.log(nsData)
+     console.log('nsData', nsData)
     // sned the nsData back to the client. We need to use socket, NOT io, because we want it to 
     // go to just this client. 
     socket.emit('nsList',nsData);
@@ -32,7 +32,7 @@ namespaces.forEach((namespace)=>{
     // console.log(namespace)
     // const thisNs = io.of(namespace.endpoint)
     io.of(namespace.endpoint).on('connection',(nsSocket)=>{
-        console.log(nsSocket.handshake)
+        console.log('nsSocket', nsSocket.handshake)
         const username = nsSocket.handshake.query.username;
         // console.log(`${nsSocket.id} has join ${namespace.endpoint}`)
         // a socket has connected to one of our chatgroup namespaces.
